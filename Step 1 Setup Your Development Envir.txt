@@ -1,0 +1,143 @@
+Step 1: Setup Your Development Environment
+1. Install Python and Node.js
+Install Python 3.8+ from https://www.python.org/downloads/
+
+Install Node.js (which includes npm) from https://nodejs.org/
+
+2. Create project folders
+bash
+Copy
+Edit
+mkdir tolling-project
+cd tolling-project
+mkdir backend frontend data
+Step 2: Prepare Python Backend Environment
+1. Create and activate a virtual environment
+bash
+Copy
+Edit
+cd backend
+python -m venv venv
+# Activate venv:
+# Windows:
+venv\Scripts\activate
+# macOS/Linux:
+source venv/bin/activate
+2. Install backend dependencies
+bash
+Copy
+Edit
+pip install fastapi uvicorn tensorflow numpy pydantic python-multipart opencv-python
+3. Create main FastAPI file
+Create main.py in backend folder with a minimal FastAPI app (you can expand later):
+
+python
+Copy
+Edit
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/")
+def read_root():
+    return {"message": "Tolling API is running"}
+4. Run backend server
+bash
+Copy
+Edit
+uvicorn main:app --reload
+Open http://localhost:8000/ in your browser to test.
+
+Step 3: Prepare Frontend Environment
+1. Initialize React + TypeScript app
+bash
+Copy
+Edit
+cd ../frontend
+npx create-react-app . --template typescript
+2. Start React development server
+bash
+Copy
+Edit
+npm start
+Open http://localhost:3000/ in your browser to verify.
+
+Step 4: Download and Explore KITTI Dataset
+1. Download KITTI training data
+Go to http://www.cvlibs.net/datasets/kitti/
+
+Download the "Object Detection" training images and labels
+
+2. Explore dataset structure
+Images folder contains raw images
+
+Labels folder contains text files with bounding boxes and classes
+
+Step 5: Prepare Data for Model Training
+1. Parse KITTI labels
+Write a Python script to read label files, extract vehicle annotations (car, truck, cyclist), and crop vehicle images if needed.
+
+2. Split data
+Split images and labels into training (80%) and validation (20%) folders.
+
+Step 6: Train Vehicle Classification Model
+1. Build a simple TensorFlow CNN
+Resize and normalize images
+
+Create CNN or use transfer learning (e.g., MobileNetV2)
+
+2. Train and validate model
+Save model as vehicle_classifier.
+
+Step 7: Integrate Model into FastAPI Backend
+1. Load saved model in FastAPI main.py
+2. Create /predict POST endpoint
+Accept image uploads or base64 images
+
+Preprocess input and run prediction
+
+Return predicted vehicle class JSON response
+
+Step 8: Connect React Frontend with Backend API
+1. Build a form for image upload
+2. Call /predict API on submit
+3. Display prediction result on the page
+Step 9: Implement Toll Pricing Logic and Payment Integration
+1. Create toll pricing rules based on vehicle type
+2. Add payment gateway sandbox integration (Stripe or PayPal)
+3. Add UI components to handle payments
+Step 10: Test, Refine, and Deploy
+1. Test all flows end-to-end locally
+2. Write unit and integration tests
+3. Deploy backend and frontend on cloud platforms
+Summary
+Task	What You Will Learn
+Environment setup	Virtual environments, React setup
+Data handling	Dataset exploration and parsing
+ML model training	TensorFlow, image classification
+Backend API	FastAPI, REST endpoints
+Frontend dev	React + TypeScript, forms, API calls
+Integration	Connecting frontend and backend
+Payment gateway	Secure payments integration
+Deployment	Hosting on cloud services
+
+If you want, I can provide starter code snippets or help you with any specific step next. Just ask!
+
+https://www.cvlibs.net/datasets/kitti/
+
+
+
+tolling-project/
+├── backend/
+├── frontend/
+├── data/
+│   ├── raw/
+│   │   ├── image_2/        ← KITTI original left images
+│   │   ├── label_2/        ← KITTI original label files
+│   ├── processed/
+│   │   ├── crops/          ← Cropped vehicle images (Car, Truck, Cyclist)
+│   │   ├── classification/
+│   │   │   ├── train/      ← Train images (per class)
+│   │   │   └── val/        ← Validation images (per class)
+├── parse_kitti_labels.py   ← Script #1
+├── split_dataset.py        ← Script #2

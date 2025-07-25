@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.pyc
+*.h5
+*.pkl
+
+# Environment
+venv/
+.env
+
+# Frontend
+node_modules/
+build/
+dist/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Dataset folders and zip archives
+data_object_image2/
+data_object_label2/
+data_object_image2.zip
+
+backend/data/*
