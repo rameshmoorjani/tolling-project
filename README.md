@@ -99,6 +99,10 @@ Visit: http://www.cvlibs.net/datasets/kitti/
 
 Go to the Object Detection dataset section.
 
+Download the "Object Detection" training images and labels
+Download left color images of object data set (12 GB) ( 2D)
+Download training labels of object data set (5 MB)   ( 2D)
+
 Download:
 
 data_object_image_2.zip
