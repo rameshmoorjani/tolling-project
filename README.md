@@ -81,7 +81,7 @@ Run backend
 
 
 uvicorn main:app --reload
-# Open http://localhost:8000/
+Open http://localhost:8000/
 ### Step 3: Prepare Frontend Environment
 Initialize React app
 
@@ -92,7 +92,7 @@ Start frontend
 
 
 npm start
-# Open http://localhost:3000/
+Open http://localhost:3000/
 ### Step 4: Download and Explore KITTI Dataset
 How to Download KITTI Dataset Images and Labels
 Visit: http://www.cvlibs.net/datasets/kitti/
@@ -100,7 +100,9 @@ Visit: http://www.cvlibs.net/datasets/kitti/
 Go to the Object Detection dataset section.
 
 Download the "Object Detection" training images and labels
+
 Download left color images of object data set (12 GB) ( 2D)
+
 Download training labels of object data set (5 MB)   ( 2D)
 
 Download:
