@@ -57,9 +57,6 @@ This project is a full-stack application for vehicle classification and toll man
 ### Step 2: Prepare Python Backend Environment
 Create and activate virtual environment
 
-bash
-Copy
-Edit
 cd backend
 python -m venv venv
 # Activate (Windows):
@@ -68,15 +65,10 @@ venv\Scripts\activate
 source venv/bin/activate
 Install dependencies
 
-bash
-Copy
-Edit
 pip install fastapi uvicorn tensorflow numpy pydantic python-multipart opencv-python
 Create FastAPI app
 
 python
-Copy
-Edit
 # backend/main.py
 from fastapi import FastAPI
 
@@ -87,24 +79,18 @@ def read_root():
     return {"message": "Tolling API is running"}
 Run backend
 
-bash
-Copy
-Edit
+
 uvicorn main:app --reload
 # Open http://localhost:8000/
 ### Step 3: Prepare Frontend Environment
 Initialize React app
 
-bash
-Copy
-Edit
+
 cd ../frontend
 npx create-react-app . --template typescript
 Start frontend
 
-bash
-Copy
-Edit
+
 npm start
 # Open http://localhost:3000/
 ### Step 4: Download and Explore KITTI Dataset
@@ -121,9 +107,7 @@ data_object_label_2.zip
 
 Extract and place contents:
 
-bash
-Copy
-Edit
+
 backend/data_object_image_2/   # contains images
 backend/data_object_label_2/   # contains label files
 These files are ignored in Git using .gitignore.
