@@ -105,8 +105,6 @@ Download left color images of object data set (12 GB) ( 2D)
 
 Download training labels of object data set (5 MB)   ( 2D)
 
-Download:
-
 data_object_image_2.zip
 
 data_object_label_2.zip
